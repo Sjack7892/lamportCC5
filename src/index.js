@@ -7,9 +7,9 @@ import { Provider } from 'react-redux';
 
 // put your reducer here!
 const speedInitialState = 0;
-
+// Reducer for speed value;
 const speed = (state = speedInitialState, action) => {
-    console.log('in myReducer:', action)
+    console.log('in speed reducer:', action)
     if (action.type === 'increaseSpeed') {
         state += action.payload;
     } else if (action.type === 'decreaseSpeed') {
@@ -19,23 +19,19 @@ const speed = (state = speedInitialState, action) => {
 }
 
 const passengersInitialState = ['Steve'];
-
+// Reducer for passengers.
 const passengers = (state = passengersInitialState, action) => {
-    console.log('in myReducer:', action)
+    console.log('in passengers reducer:', action)
     if (action.type === 'addPassenger') {
         state = [...state, action.payload];
     } 
     return state;
 }
 
-// use reducer in store
-// const storeInstance = createStore(myReducer);
-
 const storeInstance = createStore(
     combineReducers({
         speed,
         passengers
-
     })
 )
 
